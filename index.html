@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Maa 💛</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,system-ui;}
+
+body{
+  background:linear-gradient(180deg,#fff6ea,#fefcff);
+  color:#222;
+  overflow-x:hidden;
+}
+
+section{
+  min-height:100vh;
+  padding:8vw;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  position:relative;
+}
+
+/* HERO */
+
+.hero{
+  background:
+    radial-gradient(circle at 20% 20%,#ffd6ec 0%,transparent 40%),
+    radial-gradient(circle at 80% 30%,#c5f4ff 0%,transparent 40%),
+    radial-gradient(circle at 50% 80%,#fff2b3 0%,transparent 40%);
+  text-align:center;
+}
+
+.hero h1{
+  font-size:clamp(3rem,7vw,6rem);
+  line-height:1;
+}
+
+.hero p{
+  margin-top:20px;
+  font-size:1.2rem;
+  opacity:.8;
+}
+
+/* STORY */
+
+.story{
+  flex-direction:row;
+  gap:60px;
+  max-width:1100px;
+}
+
+.story img{
+  width:380px;
+  height:420px;
+  border-radius:26px;
+  object-fit:cover;
+  background:#ddd;
+}
+
+.story .text{
+  max-width:500px;
+  font-size:1.1rem;
+  line-height:1.7;
+}
+
+/* ENVELOPE LETTER */
+
+.letter-section{
+  background:
+    radial-gradient(circle at 20% 20%,#ffe4f2 0%,transparent 45%),
+    radial-gradient(circle at 80% 30%,#e0f6ff 0%,transparent 45%);
+}
+
+.envelope-wrapper{
+  width:300px;
+  height:200px;
+  position:relative;
+  cursor:pointer;
+  perspective:1000px;
+}
+
+.envelope{
+  position:absolute;
+  inset:0;
+  background:#ffdf8a;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 20px 40px rgba(0,0,0,.15);
+}
+
+.env-front{
+  position:absolute;
+  inset:0;
+  background:#ffd15c;
+  clip-path:polygon(0 0,100% 0,50% 60%);
+  z-index:3;
+}
+
+.env-back{
+  position:absolute;
+  inset:0;
+  background:#ffeaa7;
+}
+
+.env-button{
+  position:absolute;
+  left:50%;
+  top:65%;
+  transform:translate(-50%,-50%);
+  background:white;
+  border:none;
+  padding:10px 18px;
+  border-radius:20px;
+  font-weight:600;
+  cursor:pointer;
+  z-index:5;
+}
+
+/* VALUES */
+
+.values{
+  max-width:1000px;
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+
+.card{
+  padding:30px;
+  border-radius:22px;
+  background:rgba(255,255,255,.7);
+  backdrop-filter:blur(8px);
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+  text-align:center;
+  font-weight:600;
+}
+
+/* GALLERY */
+
+.gallery{
+  max-width:1000px;
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.photo{
+  height:220px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#ffd6e8,#c5f4ff);
+}
+
+/* OUTRO */
+
+.outro{
+  text-align:center;
+  font-size:clamp(2rem,5vw,4rem);
+  background:
+    radial-gradient(circle at 30% 30%,#ffe9b5,transparent 40%),
+    radial-gradient(circle at 70% 60%,#ffd6ec,transparent 40%);
+}
+
+/* popup overlay */
+
+.letter-popup{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.25);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  pointer-events:none;
+  opacity:0;
+}
+
+/* actual paper */
+
+.letter-content{
+  width:80vw;
+  height:80vh;
+  background:white;
+  border-radius:22px;
+  padding:40px;
+  font-size:1.05rem;
+  line-height:1.7;
+  overflow-y:auto;
+  box-shadow:0 30px 60px rgba(0,0,0,.25);
+  transform:scale(0.8);
+}
+
+/* close button */
+
+.close-letter{
+  position:absolute;
+  top:40px;
+  right:40px;
+  background:white;
+  border:none;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <h1 class="hero-title">Happy Birthday Maa 💛</h1>
+  <p class="hero-sub">This small website is made only for you.</p>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <img src="" alt="">
+  <div class="text">
+    <h2>Our story</h2><br>
+    From my childhood to where I stand today, you were always there for me.
+    You supported me when I was scared, and celebrated me even when my
+    achievements were small.
+  </div>
+</section>
+
+<!-- LETTER -->
+<section class="letter-section">
+
+  <h2 style="margin-bottom:40px;">A small letter for you</h2>
+
+  <div class="envelope-wrapper" id="envelopeBox">
+
+    <div class="envelope">
+      <div class="env-back"></div>
+      <div class="env-front"></div>
+
+      <button class="env-button" id="openLetter">Open me</button>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- POPUP LETTER -->
+
+<div class="letter-popup" id="letterPopup">
+
+  <button class="close-letter" id="closeLetter">✕</button>
+
+  <div class="letter-content">
+    Dear Maa,<br><br>
+    I may not say it every day, but you are the strongest and most
+    beautiful part of my life. Thank you for believing in me even when
+    I doubted myself. I promise I will always try my best to make you
+    proud.<br><br>
+    Love you always 💛
+  </div>
+
+</div>
+
+
+<!-- VALUES -->
+<section>
+  <h2 style="margin-bottom:40px;">What you taught me</h2>
+  <div class="values">
+    <div class="card">Kindness</div>
+    <div class="card">Patience</div>
+    <div class="card">Strength</div>
+    <div class="card">Honesty</div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section>
+  <h2 style="margin-bottom:40px;">Memories</h2>
+  <div class="gallery">
+    <div class="photo"></div>
+    <div class="photo"></div>
+    <div class="photo"></div>
+    <div class="photo"></div>
+  </div>
+</section>
+
+<!-- OUTRO -->
+<section class="outro">
+  Everything I am… started with you.
+</section>
+
+
+<!-- GSAP -->
+<script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+<!-- Lenis -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* Smooth scroll */
+const lenis = new Lenis({smoothWheel:true});
+function raf(time){
+  lenis.raf(time);
+  requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+/* HERO */
+gsap.from(".hero-title",{y:60,opacity:0,duration:1.2,ease:"power3.out"});
+gsap.from(".hero-sub",{y:30,opacity:0,duration:.8,delay:.3});
+
+/* STORY */
+gsap.from(".story img",{
+  x:-80,opacity:0,
+  scrollTrigger:{trigger:".story",start:"top 70%"}
+});
+gsap.from(".story .text",{
+  x:80,opacity:0,
+  scrollTrigger:{trigger:".story",start:"top 70%"}
+});
+
+/* VALUES */
+gsap.from(".card",{
+  y:60,opacity:0,stagger:.15,
+  scrollTrigger:{trigger:".values",start:"top 75%"}
+});
+
+/* GALLERY */
+gsap.from(".photo",{
+  scale:.8,opacity:0,stagger:.1,
+  scrollTrigger:{trigger:".gallery",start:"top 75%"}
+});
+
+/* OUTRO */
+gsap.from(".outro",{
+  y:60,opacity:0,
+  scrollTrigger:{trigger:".outro",start:"top 75%"}
+});
+
+/* ENVELOPE ANIMATION */
+const openBtn  = document.getElementById("openLetter");
+const closeBtn = document.getElementById("closeLetter");
+const popup    = document.getElementById("letterPopup");
+const content  = popup.querySelector(".letter-content");
+const envelope = document.getElementById("envelopeBox");
+
+let isOpen = false;
+
+/* open animation */
+
+const openTL = gsap.timeline({ paused:true });
+
+openTL
+.to(envelope,{
+  scale:0.9,
+  opacity:0,
+  duration:0.4,
+  ease:"power2.out"
+})
+.set(popup,{
+  pointerEvents:"auto"
+})
+.to(popup,{
+  opacity:1,
+  duration:0.4
+},"<")
+.to(content,{
+  scale:1,
+  duration:0.5,
+  ease:"power3.out"
+},"-=0.1");
+
+/* close animation */
+
+const closeTL = gsap.timeline({ paused:true });
+
+closeTL
+.to(content,{
+  scale:0.85,
+  duration:0.3,
+  ease:"power2.in"
+})
+.to(popup,{
+  opacity:0,
+  duration:0.3
+},"<")
+.set(popup,{
+  pointerEvents:"none"
+})
+.to(envelope,{
+  scale:1,
+  opacity:1,
+  duration:0.4,
+  ease:"power2.out"
+});
+
+
+openBtn.addEventListener("click",()=>{
+
+  if(isOpen) return;
+  isOpen = true;
+
+  openTL.restart();
+});
+
+closeBtn.addEventListener("click",()=>{
+
+  if(!isOpen) return;
+
+  closeTL.restart();
+  isOpen = false;
+});
+
+</script>
+
+</body>
+</html>
